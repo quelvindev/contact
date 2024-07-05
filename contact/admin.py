@@ -11,4 +11,8 @@ class ContactAdmin(admin.ModelAdmin):
     list_max_show_all = 200
     list_display_links ='id','frist_name',
     search_fields ='id','frist_name','last_name','email', 
+
+@admin.register(models.Category)
+class CaregoryAdmin(admin.ModelAdmin):
+    list_display='id','name'
     
