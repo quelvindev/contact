@@ -1,5 +1,3 @@
-Claro! Aqui está um exemplo de um arquivo README.md para o projeto chamado "Contact". Este arquivo inclui instruções detalhadas sobre como lidar com o `requirements.txt` e é formatado para ser bonito e moderno com ícones:
-
 
 # 📇 Contact
 
