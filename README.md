@@ -1,6 +1,6 @@
 Claro! Aqui está um exemplo de um arquivo README.md para o projeto chamado "Contact". Este arquivo inclui instruções detalhadas sobre como lidar com o `requirements.txt` e é formatado para ser bonito e moderno com ícones:
 
-```markdown
+
 # 📇 Contact
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/quelvindev/contact)
@@ -109,9 +109,9 @@ contact/
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Contato
-- **Autor**: QuelvinDev
-- **Email**: quelvindev@example.com
-- **LinkedIn**: [QuelvinDev](https://www.linkedin.com/in/quelvindev/)
+- **Autor**: quelvindev
+- **Email**: quelvindev@gmail.com
+- **LinkedIn**: [QuelvinDev](https://www.linkedin.com/in/quelvincarvalho/)
 
 ---
 
