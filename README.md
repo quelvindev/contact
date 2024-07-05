@@ -7,7 +7,7 @@ Claro! Aqui está um exemplo de um arquivo README.md para o projeto chamado "Con
 ![GitHub issues](https://img.shields.io/github/issues/quelvindev/contact)
 ![GitHub stars](https://img.shields.io/github/stars/quelvindev/contact?style=social)
 
-**Autor**: QuelvinDev
+**Autor**: quelvindev
 
 ## 📝 Sobre o Projeto
 **Contact** é uma aplicação de agenda de contatos que permite armazenar e gerenciar informações de pessoas de maneira eficiente.
@@ -115,7 +115,7 @@ Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICEN
 
 ---
 
-Feito com ❤️ por QuelvinDev
-```
+Feito com ❤️ por Quelvin Carvalho 
+
 
 Este arquivo README.md inclui todas as informações necessárias para instalar e usar o projeto, além de ser visualmente atraente e fácil de ler. Use ícones para dar um toque moderno e adicione badges para informações úteis como último commit, issues e estrelas do GitHub.
