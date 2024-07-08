@@ -139,6 +139,6 @@ GitHub.sublime-settings
 .history
 
 .venv
-.vscode*
+.vscode
 
 
