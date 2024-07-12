@@ -7,5 +7,6 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', views.index,name="index"),
     path('<int:contact_id>', views.contact,name="contact"),
+    path('search/', views.search,name="search"),
     
 ]
