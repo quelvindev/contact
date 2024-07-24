@@ -1,7 +1,7 @@
 {% extends "global/templates/index.html" %}
 
 {% block content %}
-   
+{% if page_obj %}
     <div class="responsive-table">
         <table class="contacts-table">
             <caption class="table-caption">
@@ -18,7 +18,7 @@
             </thead>
 
             <TBOdy>
-                {% for contact in contacts  %}
+                {% for contact in page_obj  %}
                     <tr classe="table-row">
                         <td class="table-cel">
                             <a class="table-link" href="{% url "contact:contact" contact.id %}" >
@@ -46,8 +46,15 @@
 
     </div>
 
-   
+{% else %}
+<div class="single-contact">
+    <h1 class="single-contact-name">
+        Contato não encontrado
+    </h1>
 
+</div>
+
+{% endif %}   
 {% endblock content %}
 
     
