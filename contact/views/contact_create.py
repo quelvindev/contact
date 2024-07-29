@@ -1,15 +1,6 @@
-from django.shortcuts import render,get_object_or_404,redirect
-from contact.models import Contact
-from django.db.models import Q
-from django.http import Http404
-from django.db.models import Max
-from django.core.paginator import Paginator
-from django import forms
+from django.shortcuts import render
+from contact.forms import ContactForm
 
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields = ('first_name','last_name','phone',)
 
 
 #app_name = 'contact'
