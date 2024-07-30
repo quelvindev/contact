@@ -26,6 +26,14 @@ class ContactForm(forms.ModelForm):
         
     )
 
+    email = forms.CharField(
+        widget=forms.EmailInput(attrs={'placeholder':'rebecaloh@email.com'}),
+        label='Email',
+        
+    )
+
+
+
     # ATUALIZANDO O WIDGET
     # def __init__(self,*args, **kwargs):
     #     super().__init__(*args, **kwargs)
@@ -36,7 +44,7 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = ('first_name','last_name','phone',)
+        fields = ('first_name','last_name','phone','email','description','category')
         # CRIANDO UM NOVO widgets PARA O CAMPO
         # widgets= {'first_name': forms.TextInput(
         #     attrs={'placeholder':'Perla'}
@@ -46,12 +54,12 @@ class ContactForm(forms.ModelForm):
 
         cleaned_data = self.cleaned_data
 
-        self.add_error(
-            None,
-            ValidationError(
-                'Mensagem error',
-                code ='invalid'
+        # self.add_error(
+        #     None,
+        #     ValidationError(
+        #         'Mensagem error',
+        #         code ='invalid'
 
-            )
-        )
+        #     )
+        # )
         return super().clean()
