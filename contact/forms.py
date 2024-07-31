@@ -5,6 +5,7 @@ from django.core.files.base import File
 from django.db.models.base import Model
 from django.forms.utils import ErrorList
 from contact.models import Contact
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ContactForm(forms.ModelForm):
@@ -31,7 +32,9 @@ class ContactForm(forms.ModelForm):
         label='Email',
         
     )
-
+    picture = forms.ImageField(
+        widget=forms.FileInput(attrs={'accept':'image/*'}),
+    )
 
 
     # ATUALIZANDO O WIDGET
@@ -44,7 +47,7 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = ('first_name','last_name','phone','email','description','category')
+        fields = ('first_name','last_name','phone','email','description','category','picture',)
         # CRIANDO UM NOVO widgets PARA O CAMPO
         # widgets= {'first_name': forms.TextInput(
         #     attrs={'placeholder':'Perla'}
@@ -63,3 +66,6 @@ class ContactForm(forms.ModelForm):
         #     )
         # )
         return super().clean()
+
+class RegisterForm(UserCreationForm):
+    ...

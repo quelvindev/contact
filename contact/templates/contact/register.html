@@ -2,14 +2,9 @@
 
 
 {% block content %}
-    {% if form_action == "/contact/create"%}
-        <h1>Create Contact</h1>
-    {% else %}
-        <h1>Update Contact</h1>
-    {% endif %}
     <div class="form-wrapper">
         <h2>Contact</h2>
-        <form action="{{form_action}}" method="POST" enctype="multipart/form-data">
+        <form action="{{form_action}}" method="POST" >
             {% csrf_token %}
             <div class="form-content">
                 {% for field in form  %}
@@ -23,11 +18,6 @@
                             </p>
                         {% endif %}
                     </div>
-                    {% if field.name == 'picture' and field.value.url %}
-                        <div class="form-group">
-                            <img src="{{field.value.url}}" alt="">
-                        </div>
-                    {% endif %}
                 {% endfor %}
             </div>
 
