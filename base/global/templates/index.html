@@ -6,6 +6,8 @@
 </head>
 <body>
     {% include "global/templates/partials/_header.html" %}
+
+    {% include "global/templates/partials/_messages.html" %}
     <main class="content">
         {% block content %}{% endblock content %} 
         {% include "global/templates/partials/_pagination.html" %}

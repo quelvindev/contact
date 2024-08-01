@@ -109,3 +109,17 @@ class RegisterForm(UserCreationForm):
                            ValidationError('Email já cadastrado',code='invalid'))
             return email
             
+class Login(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'rebloh'}),
+        label='Login',
+        
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder':'rebloh'}),
+        label='Login',
+        
+    )
+    class Meta:
+        model = User
+        fields=('username','password',)
