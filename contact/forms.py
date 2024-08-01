@@ -6,6 +6,7 @@ from django.db.models.base import Model
 from django.forms.utils import ErrorList
 from contact.models import Contact
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 class ContactForm(forms.ModelForm):
@@ -68,4 +69,43 @@ class ContactForm(forms.ModelForm):
         return super().clean()
 
 class RegisterForm(UserCreationForm):
-    ...
+
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'Rebeca'}),
+        label='Primeiro Nome',
+        help_text='Digite Seu primeiro nome',
+        required=True,
+    )
+
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'Lohane'}),
+        label='Primeiro Nome',
+        help_text='Digite Seu primeiro nome'
+    )
+
+    
+    email = forms.CharField(
+        widget=forms.EmailInput(attrs={'placeholder':'rebecaloh@email.com'}),
+        label='Email',
+        
+    )
+
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'rebloh'}),
+        label='Login',
+        
+    )
+    class Meta:
+        model = User
+        fields=('first_name','last_name','email',
+                'username','password1','password2')
+        
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if User.objects.filter(email=email).exists():
+            self.add_error('email',
+                           ValidationError('Email já cadastrado',code='invalid'))
+            return email
+            
