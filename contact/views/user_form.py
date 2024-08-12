@@ -3,6 +3,7 @@ from django.contrib import messages,auth
 from contact.forms import RegisterForm
 from contact.forms import RegisteupdateForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
         form = RegisterForm()
@@ -45,22 +46,28 @@ def login_view(request):
         return render(request,'contact/login.html',context)
 
 
+
+@login_required(login_url='concact:login')
+def user_update(request):
+        if request.user.is_authenticated:
+                form = RegisteupdateForm(instance=request.user)
+                context ={'form':form}
+                if request.method == 'POST':
+                        form = RegisteupdateForm(data=request.POST,instance=request.user)
+                        if form.is_valid():
+                                form.save()
+                                context ={'form':form}
+                                return redirect('contact:user_update')
+                        
+                
+
+                
+                return render(request,'contact/user_update.html',context)
+        else:
+                messages.error(request,'Não existe usuário logado')
+                return redirect('contact:login')
+        
+@login_required(login_url='concact:login')
 def logout_view(request):
         auth.logout(request)
         return redirect('contact:login')
-
-
-def user_update(request):
-        form = RegisteupdateForm(instance=request.user)
-        context ={'form':form}
-        if request.method == 'POST':
-                form = RegisteupdateForm(data=request.POST,instance=request.user)
-                if form.is_valid():
-                        form.save()
-                        context ={'form':form}
-                        return redirect('contact:user_update')
-                
-        
-
-        
-        return render(request,'contact/user_update.html',context)

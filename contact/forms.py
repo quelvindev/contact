@@ -36,6 +36,7 @@ class ContactForm(forms.ModelForm):
     )
     picture = forms.ImageField(
         widget=forms.FileInput(attrs={'accept':'image/*'}),
+        required=False
     )
 
 
@@ -109,6 +110,7 @@ class RegisterForm(UserCreationForm):
             self.add_error('email',
                            ValidationError('Email já cadastrado',code='invalid'))
             return email
+        return email
             
 class RegisteupdateForm(forms.ModelForm):
     first_name = forms.CharField(
@@ -138,19 +140,19 @@ class RegisteupdateForm(forms.ModelForm):
     )
 
     password1 = forms.CharField(
-        label='Password',
-        strip='False',
+        label="Password",
+        strip=False,
         widget= forms.PasswordInput(attrs={"autocomplete":"new-password"}),
         help_text=password_validation.password_validators_help_text_html(),
-        required='False',
+        required=False,
                                     
     )
     password2 = forms.CharField(
-        label='Password 2',
-        strip='False',
+        label="Password 2",
+        strip=False,
         widget= forms.PasswordInput(attrs={"autocomplete":"new-password"}),
-        help_text='Use the same password as before.',
-        required='False',
+        help_text="Use the same password as before.",
+        required=False,
                                     
     )
     class Meta:
@@ -160,9 +162,18 @@ class RegisteupdateForm(forms.ModelForm):
 
 
     
+    def save(self,commit = True):
+        cleaned_data = self.cleaned_data
+        user = super().save(commit=False)
+
+        password = cleaned_data.get('password1')
+        if password:
+            user.set_password(password)
+        if commit:
+            user.save()
+        return user
 
     def clean(self):
-
         cleaned_data = self.cleaned_data
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')

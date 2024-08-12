@@ -1,3 +1,3 @@
 from .contact_views import *
-from .contact_create import *
+from .contact_forms import *
 from .user_form import *
