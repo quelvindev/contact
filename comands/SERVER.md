@@ -131,7 +131,7 @@ python manage.py createsuperuser
 ## Permitir arquivos maiores no nginx
 
 ```
-sudo nano /etc/nginx/nginx.conf
+sudo 
 ```
 
 Adicione em http {}:

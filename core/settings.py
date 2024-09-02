@@ -26,13 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-jsww5xy@h2wb-!e1r3$$&#3wxr2jlxlday)8p2p7pczjho40tn'
-SECRET_KEY ="sOSNV'*g\Bq)8UufJ1<O0W3;$0uxB/dag{cv71)99/*B?TFUiM#q21G+p%d@-5h8"
+SECRET_KEY = 'django-insecure-jsww5xy@h2wb-!e1r3$$&#3wxr2jlxlday)8p2p7pczjho40tn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['35.226.190.103']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,23 +83,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'projeto_agenda',
-        'USER':'',
-        'PASSOWRD':'',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
