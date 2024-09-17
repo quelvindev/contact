@@ -5,6 +5,7 @@ from pathlib import Path
 from random import choice
 
 import django
+import re
 from django.conf import settings
 
 DJANGO_BASE_DIR = Path(__file__).parent.parent
@@ -18,6 +19,7 @@ django.setup()
 
 if __name__ == '__main__':
     import faker
+   
 
     from contact.models import Category, Contact
 
@@ -38,7 +40,7 @@ if __name__ == '__main__':
         profile = fake.profile()
         email = profile['mail']
         first_name, last_name = profile['name'].split(' ', 1)
-        phone = fake.phone_number()
+        phone = re.sub(r'\D', '', fake.phone_number())[:14]
         created_date: datetime = fake.date_this_year()
         description = fake.text(max_nb_chars=100)
         category = choice(django_categories)
